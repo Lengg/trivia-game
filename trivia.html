@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset= "UTF-8">
+	<title>Trivia Game</title>
+</head>
+<body>
+
+<div id="game">
+	<h1>Trivia Game</h1>
+		<h2>Instructions:</h2>
+		<h5>True of False... press 'OK' for <em>True</em>, or press 'CANCEL' for <em>False</em>.</h5>
+		<h5>To play again just press "<strong>s</strong>" to start over.</h5>
+</div>
+	<ul style = "list-style-type: none">
+		<li id= "score"></li>		
+	</ul>
+
+<script>
+
+	var trivia = {
+		q1: ["Elephants eat with their noses?", true],
+		q2: ["Is the number 3 an even number?", false],
+		q3: ["Do you need to drink water to live?", true]
+	};
+
+
+	var score = 0;
+
+
+
+	function startGame(){
+
+		var q1Answer = confirm(trivia.q1[0]);
+
+		if (q1Answer == trivia.q1[1]) {
+			alert("Correct!");
+			score++;
+		}
+		else {
+			alert("Wrong...");
+		}
+
+		var q2Answer = confirm(trivia.q2[0]);
+
+		if (q2Answer == trivia.q2[1]) {
+			alert("Correct!");
+			score++;
+		}
+		else {
+			alert("Wrong...");
+		}
+
+		var q3Answer = confirm(trivia.q3[0]);
+
+		if (q3Answer == trivia.q3[1]) {
+			alert("Correct!");
+			score++;
+		}
+		else {
+			alert("Wrong...");
+		}
+	}
+
+startGame();
+console.log(score);
+document.getElementById("score").innerHTML = "Your Score: " + score + " out of 3";
+
+document.onkeyup = function(event) {
+
+	var gameOver = String.fromCharCode(event.keyCode).toLowerCase();
+
+		if (gameOver == "s") {
+			startGame();
+		}
+	}
+
+</script>
+</body>
+</html>
